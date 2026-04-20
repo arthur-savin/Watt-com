@@ -2073,6 +2073,30 @@
        ========================================================== */
 
     /* ==========================================================
+       Utilitaires (sécurité & robustesse)
+       IMPORTANT : doivent être déclarés AVANT l'initialisation Leaflet,
+       car les template literals évaluent immédiatement ${escapeHtml(...)}.
+       ========================================================== */
+    function setMapCursor(mapInstance, value){
+      const el = mapInstance?.getContainer?.();
+      if (!el) return;
+      el.style.cursor = value;
+    }
+
+    function escapeHtml(str){
+      return String(str ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function sanitizeTel(str){
+      return String(str ?? "").replace(/[^\d+]/g, "");
+    }
+
+    /* ==========================================================
        CONFIG CENTRALISÉE
        Toute modification passe uniquement par CONFIG.
        ========================================================== */
@@ -2231,28 +2255,6 @@
       // Invalidate au prochain tick (utile si la section se met en page après le chargement)
       requestAnimationFrame(() => map.invalidateSize());
     })();
-
-    /* ==========================================================
-       Utilitaires (sécurité & robustesse)
-       ========================================================== */
-    function setMapCursor(mapInstance, value){
-      const el = mapInstance?.getContainer?.();
-      if (!el) return;
-      el.style.cursor = value;
-    }
-
-    function escapeHtml(str){
-      return String(str ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-
-    function sanitizeTel(str){
-      return String(str ?? "").replace(/[^\d+]/g, "");
-    }
 
     // Mobile nav toggle
     const toggle = document.getElementById('nav-toggle');
