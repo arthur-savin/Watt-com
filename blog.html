@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Électricité Lyon — watt-com | Conseils & Guides</title>
+  <meta name="description" content="Conseils d'expert en électricité et télécom à Lyon. Normes, domotique, mise aux normes, entretien : le blog watt-com pour particuliers et professionnels du Rhône.">
+  <link rel="canonical" href="https://watt-com.com/blog/">
+
+  <meta property="og:title" content="Blog électricité Lyon — watt-com">
+  <meta property="og:description" content="Guides pratiques et conseils d'expert en électricité pour Lyon et le Grand Lyon.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+
+  <meta name="geo.region" content="FR-69">
+  <meta name="geo.placename" content="Lyon">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog watt-com — Électricité & Télécom Lyon",
+    "url": "https://watt-com.com/blog/",
+    "publisher": {
+      "@type": "LocalBusiness",
+      "name": "watt-com",
+      "url": "https://watt-com.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lyon",
+        "addressCountry": "FR"
+      }
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --c-primaire: #1a2b4a;
+      --c-primaire-clair: #243d68;
+      --c-accent: #e8960f;
+      --c-accent-hover: #c97d08;
+      --c-fond: #f8f6f1;
+      --c-fond-alt: #eeeae0;
+      --c-fond-sombre: #111c2e;
+      --c-texte: #1e1e1e;
+      --c-texte-clair: #5a5550;
+      --c-blanc: #ffffff;
+      --c-bordure: #d8d2c6;
+
+      --t-titre: 'Barlow Condensed', Arial Narrow, sans-serif;
+      --t-corps: 'Barlow', system-ui, sans-serif;
+      --t-ligne: 1.65;
+
+      --espace-xs: 0.5rem;
+      --espace-s: 1rem;
+      --espace-m: 2rem;
+      --espace-l: 4rem;
+      --espace-xl: 6rem;
+
+      --largeur-max: 1200px;
+      --padding-page: clamp(1.25rem, 5vw, 3rem);
+      --ombre-card: 0 5px 28px rgba(26,43,74,0.09);
+      --rayon-s: 3px;
+      --rayon-m: 7px;
+      --transition: 0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--t-corps); font-size: 1rem; line-height: var(--t-ligne); color: var(--c-texte); background: var(--c-fond); overflow-x: hidden; }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4 { font-family: var(--t-titre); font-weight: 700; letter-spacing: -0.01em; }
+
+    .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--c-accent); color: #fff; padding: 0.5rem 1rem; z-index: 9999; text-decoration: none; border-radius: var(--rayon-s); }
+    .skip-link:focus { top: 1rem; }
+    :focus-visible { outline: 3px solid var(--c-accent); outline-offset: 3px; }
+
+    .container { max-width: var(--largeur-max); margin: 0 auto; padding: 0 var(--padding-page); }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--c-primaire);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    }
+
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem var(--padding-page);
+      max-width: var(--largeur-max); margin: 0 auto; gap: 1rem;
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .logo-img { height: 48px; width: auto; display: block; }
+
+    nav { display: flex; align-items: center; gap: 0.75rem; }
+
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+
+    nav a {
+      color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem;
+      letter-spacing: 0.04em; text-transform: uppercase; transition: color var(--transition);
+      font-family: var(--t-corps); font-weight: 600;
+    }
+    nav a:hover, nav a.active { color: var(--c-accent); }
+
+    .header-tel-wrap { margin-left: 2rem; padding-left: 2rem; border-left: 1px solid rgba(255,255,255,0.15); }
+
+    .header-tel {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--c-accent); color: var(--c-primaire);
+      font-weight: 700; padding: 0.5rem 1.1rem; border-radius: var(--rayon-s);
+      text-decoration: none; font-family: var(--t-corps); font-size: 0.95rem;
+      transition: background var(--transition); flex-shrink: 0;
+    }
+    .header-tel:hover { background: var(--c-accent-hover); color: var(--c-primaire); }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--c-blanc); transition: var(--transition); }
+
+    @media (max-width: 767px) {
+      .nav-links { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--c-primaire); flex-direction: column; padding: 1.5rem var(--padding-page) 2rem; gap: 1.2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+      .nav-links.open { display: flex; }
+      nav { gap: 0.75rem; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* ── BLOG HERO ── */
+    .blog-hero {
+      padding-top: 68px;
+      background: var(--c-primaire);
+      padding-bottom: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 5px;
+      background: var(--c-accent);
+    }
+
+    .blog-hero-bg {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: repeating-linear-gradient(-47deg, transparent, transparent 60px, rgba(255,255,255,0.6) 60px, rgba(255,255,255,0.6) 61px);
+    }
+
+    .blog-hero-inner {
+      position: relative; z-index: 1;
+      padding: 4rem var(--padding-page) 3.5rem;
+      max-width: var(--largeur-max); margin: 0 auto;
+    }
+
+    .blog-hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(232,150,15,0.15); border: 1px solid rgba(232,150,15,0.35);
+      color: var(--c-accent); font-size: 0.78rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 2px;
+      margin-bottom: 1.25rem; font-family: var(--t-corps); font-weight: 600;
+    }
+    .blog-hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--c-accent); flex-shrink: 0; }
+
+    .blog-hero-inner h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: var(--c-blanc); line-height: 1.0;
+      text-transform: uppercase; letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .blog-hero-inner p {
+      color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── BLOG CONTENT ── */
+    .blog-main {
+      padding: 5rem 0 6rem;
+    }
+
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* Featured post */
+    .post-featured {
+      background: var(--c-blanc);
+      border-radius: var(--rayon-m);
+      box-shadow: var(--ombre-card);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      text-decoration: none;
+      color: inherit;
+      transition: transform var(--transition);
+    }
+    .post-featured:hover { transform: translateY(-3px); }
+
+    .post-featured-img {
+      aspect-ratio: auto;
+      min-height: 300px;
+      background: var(--c-primaire);
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .post-featured-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(255,255,255,0.03) 18px, rgba(255,255,255,0.03) 19px);
+    }
+
+    .post-featured-icon {
+      width: 72px; height: 72px; opacity: 0.25;
+    }
+
+    .post-featured-label {
+      position: absolute; top: 1.25rem; left: 1.25rem;
+      background: var(--c-accent); color: var(--c-primaire);
+      font-family: var(--t-corps); font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.3rem 0.7rem; border-radius: 2px;
+    }
+
+    .post-featured-body {
+      padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .post-meta {
+      font-size: 0.78rem; color: var(--c-texte-clair);
+      font-family: var(--t-corps); letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 0.85rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .post-meta-sep { opacity: 0.4; }
+
+    .post-featured-body h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--c-primaire); line-height: 1.15;
+      margin-bottom: 1rem; text-transform: uppercase;
+    }
+
+    .post-featured-body p {
+      font-size: 0.97rem; color: var(--c-texte-clair); line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .read-more {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--c-accent); font-weight: 700;
+      font-size: 0.88rem; text-decoration: none;
+      font-family: var(--t-corps); text-transform: uppercase; letter-spacing: 0.06em;
+      transition: gap var(--transition);
+    }
+    .read-more:hover { gap: 0.75rem; }
+
+    /* Posts grid */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .post-card {
+      background: var(--c-blanc);
+      border-radius: var(--rayon-m);
+      box-shadow: var(--ombre-card);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column;
+      transition: transform var(--transition);
+      border-top: 3px solid transparent;
+    }
+    .post-card:hover { transform: translateY(-2px); border-top-color: var(--c-accent); }
+
+    .post-card-img {
+      aspect-ratio: 16/9;
+      background: var(--c-fond-alt);
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .post-card-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(60deg, transparent, transparent 14px, rgba(26,43,74,0.04) 14px, rgba(26,43,74,0.04) 15px);
+    }
+
+    .post-card-icon { width: 36px; height: 36px; opacity: 0.18; }
+
+    .post-card-body { padding: 1.5rem 1.5rem 1.75rem; flex: 1; display: flex; flex-direction: column; }
+
+    .post-category {
+      display: inline-block;
+      font-family: var(--t-corps); font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--c-accent); margin-bottom: 0.5rem;
+    }
+
+    .post-card-body h3 {
+      font-size: 1.1rem; color: var(--c-primaire); line-height: 1.2;
+      margin-bottom: 0.6rem; text-transform: uppercase;
+    }
+
+    .post-card-body p { font-size: 0.9rem; color: var(--c-texte-clair); line-height: 1.65; flex: 1; }
+
+    .post-card-footer {
+      margin-top: 1.25rem; padding-top: 1rem;
+      border-top: 1px solid var(--c-bordure);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .post-date { font-size: 0.78rem; color: var(--c-texte-clair); font-family: var(--t-corps); }
+
+    .post-link {
+      font-size: 0.78rem; font-weight: 700; color: var(--c-accent);
+      text-decoration: none; font-family: var(--t-corps);
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* ── SIDEBAR ── */
+    .blog-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 2rem; }
+
+    .sidebar-widget {
+      background: var(--c-blanc); border-radius: var(--rayon-m);
+      padding: 1.75rem; box-shadow: var(--ombre-card);
+    }
+
+    .widget-title {
+      font-family: var(--t-titre); font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--c-primaire); margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--c-accent);
+      display: inline-block;
+    }
+
+    .sidebar-cta-widget {
+      background: var(--c-primaire); border-radius: var(--rayon-m);
+      padding: 2rem; text-align: center;
+    }
+
+    .sidebar-cta-widget .widget-title { color: var(--c-blanc); border-color: var(--c-accent); }
+    .sidebar-cta-widget p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.65; margin-bottom: 1.5rem; }
+
+    .btn-sidebar-cta {
+      display: block; background: var(--c-accent); color: var(--c-primaire);
+      font-family: var(--t-corps); font-weight: 700; font-size: 0.95rem;
+      padding: 0.85rem; border-radius: var(--rayon-s); text-decoration: none;
+      transition: background var(--transition); text-align: center;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .btn-sidebar-cta:hover { background: var(--c-accent-hover); }
+
+    .sidebar-tel {
+      display: block; font-family: var(--t-titre); font-size: 1.5rem;
+      color: var(--c-blanc); text-decoration: none; margin: 1rem 0;
+    }
+
+    .category-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .category-list li a {
+      display: flex; justify-content: space-between; align-items: center;
+      text-decoration: none; font-size: 0.9rem; color: var(--c-texte);
+      padding: 0.4rem 0; border-bottom: 1px solid var(--c-fond-alt);
+      transition: color var(--transition);
+    }
+    .category-list li a:hover { color: var(--c-accent); }
+
+    .category-count {
+      font-size: 0.75rem; background: var(--c-fond-alt);
+      color: var(--c-texte-clair); padding: 0.15rem 0.5rem;
+      border-radius: 20px; font-family: var(--t-corps);
+    }
+
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .tag {
+      display: inline-block; background: var(--c-fond-alt);
+      color: var(--c-texte-clair); font-family: var(--t-corps);
+      font-size: 0.78rem; padding: 0.3rem 0.7rem;
+      border-radius: 2px; text-decoration: none;
+      transition: background var(--transition), color var(--transition);
+      border: 1px solid var(--c-bordure);
+    }
+    .tag:hover { background: var(--c-primaire); color: var(--c-blanc); border-color: var(--c-primaire); }
+
+    /* ── NEWSLETTER BANNER ── */
+    .newsletter-banner {
+      background: var(--c-primaire);
+      padding: 4rem 0;
+      clip-path: polygon(0 6%, 100% 0%, 100% 94%, 0 100%);
+    }
+
+    .newsletter-inner {
+      max-width: var(--largeur-max); margin: 0 auto; padding: 0 var(--padding-page);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+
+    .newsletter-content h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--c-blanc);
+      text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+
+    .newsletter-content p { color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+    .newsletter-form { display: flex; gap: 0.75rem; }
+
+    .newsletter-form input {
+      flex: 1; padding: 0.85rem 1rem;
+      border: 1.5px solid rgba(255,255,255,0.2); border-radius: var(--rayon-s);
+      font-family: var(--t-corps); font-size: 1rem; color: var(--c-blanc);
+      background: rgba(255,255,255,0.08);
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+    .newsletter-form input:focus { outline: none; border-color: var(--c-accent); }
+
+    .newsletter-form button {
+      background: var(--c-accent); color: var(--c-primaire);
+      font-family: var(--t-corps); font-weight: 700; font-size: 0.95rem;
+      padding: 0.85rem 1.5rem; border: none; border-radius: var(--rayon-s);
+      cursor: pointer; transition: background var(--transition); white-space: nowrap;
+    }
+    .newsletter-form button:hover { background: var(--c-accent-hover); }
+
+    @media (max-width: 1023px) {
+      .blog-layout { grid-template-columns: 1fr; }
+      .blog-sidebar { position: static; }
+      .post-featured { grid-template-columns: 1fr; }
+      .post-featured-img { min-height: 200px; }
+      .newsletter-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 767px) {
+      .posts-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+    }
+
+    /* ── FOOTER ── */
+    footer { background: var(--c-fond-sombre); padding: var(--espace-l) 0 var(--espace-m); }
+
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+
+    .footer-brand p { margin-top: 1rem; color: rgba(255,255,255,0.45); font-size: 0.9rem; line-height: 1.7; max-width: 300px; }
+
+    .footer-col h4 { font-family: var(--t-corps); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+
+    .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; margin-bottom: 0.6rem; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--c-accent); }
+
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 767px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#contenu-principal" class="skip-link">Aller au contenu</a>
+
+  <header role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="watt-com — Accueil">
+        <img src="logo.png" alt="watt-com" class="logo-img">
+      </a>
+      <nav aria-label="Navigation principale">
+        <div class="nav-links" id="nav-links">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#zones">Zones</a>
+          <a href="index.html#realisations">Réalisations</a>
+          <a href="index.html#a-propos">À propos</a>
+          <a href="blog.html" class="active">Blog</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="header-tel-wrap">
+          <a href="tel:+33600000000" class="header-tel" aria-label="Appeler watt-com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+            </svg>
+            06 XX XX XX XX
+          </a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="blog-hero">
+    <div class="blog-hero-bg" aria-hidden="true"></div>
+    <div class="blog-hero-inner">
+      <div class="blog-hero-badge">Ressources & Conseils</div>
+      <h1>Blog Électricité<br>Lyon</h1>
+      <p>Guides pratiques, normes, domotique, télécom : l'expertise watt-com en accès libre pour les particuliers et professionnels du Grand Lyon.</p>
+    </div>
+  </div>
+
+  <main id="contenu-principal">
+    <div class="blog-main">
+      <div class="container">
+        <div class="blog-layout">
+
+          <!-- ARTICLES -->
+          <div>
+            <!-- Article vedette -->
+            <a href="article-5-signaux-renovation.html" class="post-featured" aria-label="Lire : Les 5 Signaux qui Indiquent qu'il est Temps de Rénover votre Installation Électrique">
+              <div class="post-featured-img">
+                <svg class="post-featured-icon" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+                  <path d="M36 8 L42 28 L60 28 L46 40 L52 60 L36 48 L20 60 L26 40 L12 28 L30 28Z" stroke="#e8960f" stroke-width="2" fill="none"/>
+                  <circle cx="36" cy="36" r="14" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none"/>
+                </svg>
+                <span class="post-featured-label">À la une</span>
+              </div>
+              <div class="post-featured-body">
+                <div class="post-meta">
+                  <span>21 octobre 2024</span>
+                  <span class="post-meta-sep">·</span>
+                  <span>Rénovation électrique</span>
+                </div>
+                <h2>Les 5 Signaux qui Indiquent qu'il est Temps de Rénover votre Installation Électrique</h2>
+                <p>Une installation obsolète peut entraîner pannes régulières et risques graves. Découvrez les 5 signaux d'alarme identifiés par nos électriciens à Lyon pour savoir quand agir.</p>
+                <span class="read-more">
+                  Lire l'article
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
+                </span>
+              </div>
+            </a>
+
+            <!-- Grille des articles -->
+            <div class="posts-grid">
+
+              <a href="article-thermostats-connectes.html" class="post-card">
+                <div class="post-card-img">
+                  <svg class="post-card-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <circle cx="18" cy="22" r="8" stroke="#1a2b4a" stroke-width="1.5" fill="none"/>
+                    <path d="M18 8 L18 4M12 10 L9 7M24 10 L27 7" stroke="#1a2b4a" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M18 18 L18 22" stroke="#e8960f" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="post-card-body">
+                  <span class="post-category">Domotique</span>
+                  <h3>Thermostats connectés : confort et économies d'énergie à Lyon</h3>
+                  <p>Comment les thermostats intelligents optimisent votre chauffage et réduisent vos factures dans votre domicile lyonnais.</p>
+                  <div class="post-card-footer">
+                    <span class="post-date">13 janvier 2024</span>
+                    <span class="post-link">Lire &rarr;</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="article-maintenance-preventive.html" class="post-card">
+                <div class="post-card-img">
+                  <svg class="post-card-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <path d="M18 4 L28 10 L28 22 C28 27 23 30 18 32 C13 30 8 27 8 22 L8 10 Z" stroke="#1a2b4a" stroke-width="1.5" fill="none"/>
+                    <path d="M13 18 L16.5 21.5 L23 15" stroke="#e8960f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="post-card-body">
+                  <span class="post-category">Maintenance</span>
+                  <h3>La maintenance préventive pour une installation électrique fiable</h3>
+                  <p>En tant qu'électricien à Lyon, notre guide complet pour garantir un système électrique sûr et performant sur la durée.</p>
+                  <div class="post-card-footer">
+                    <span class="post-date">2 novembre 2023</span>
+                    <span class="post-link">Lire &rarr;</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="article-mise-a-la-terre.html" class="post-card">
+                <div class="post-card-img">
+                  <svg class="post-card-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <path d="M18 6 L18 24M12 20 L24 20M14 24 L22 24M16 28 L20 28" stroke="#1a2b4a" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="18" cy="6" r="2.5" fill="#e8960f"/>
+                  </svg>
+                </div>
+                <div class="post-card-body">
+                  <span class="post-category">Sécurité</span>
+                  <h3>Tout savoir sur la mise à la terre : la garantie de votre sécurité électrique</h3>
+                  <p>Élément essentiel mais souvent négligé, la mise à la terre est cruciale pour votre sécurité et le bon fonctionnement de vos installations.</p>
+                  <div class="post-card-footer">
+                    <span class="post-date">22 octobre 2023</span>
+                    <span class="post-link">Lire &rarr;</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="article-parafoudres.html" class="post-card">
+                <div class="post-card-img">
+                  <svg class="post-card-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <path d="M22 4 L14 18 L20 18 L14 32 L28 16 L22 16 Z" stroke="#1a2b4a" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                </div>
+                <div class="post-card-body">
+                  <span class="post-category">Protection</span>
+                  <h3>Protégez vos installations contre la foudre avec les parafoudres</h3>
+                  <p>Lyon classée en zone AQ2 : pourquoi le risque de foudre est réel dans le Rhône et comment protéger vos équipements électriques.</p>
+                  <div class="post-card-footer">
+                    <span class="post-date">15 octobre 2023</span>
+                    <span class="post-link">Lire &rarr;</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="article-prises-rj45.html" class="post-card">
+                <div class="post-card-img">
+                  <svg class="post-card-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <rect x="8" y="12" width="20" height="14" rx="2" stroke="#1a2b4a" stroke-width="1.5" fill="none"/>
+                    <rect x="12" y="16" width="3" height="5" rx="1" stroke="#e8960f" stroke-width="1.2" fill="none"/>
+                    <rect x="17" y="16" width="3" height="5" rx="1" stroke="#e8960f" stroke-width="1.2" fill="none"/>
+                    <rect x="22" y="16" width="3" height="5" rx="1" stroke="#e8960f" stroke-width="1.2" fill="none"/>
+                    <path d="M18 12 L18 8" stroke="#1a2b4a" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="post-card-body">
+                  <span class="post-category">Télécom</span>
+                  <h3>Tout savoir sur les prises RJ45 : guide pour les propriétaires lyonnais</h3>
+                  <p>Améliorez l'infrastructure réseau de votre maison à Lyon : avantages des prises RJ45, installation et conseils pratiques.</p>
+                  <div class="post-card-footer">
+                    <span class="post-date">8 octobre 2023</span>
+                    <span class="post-link">Lire &rarr;</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="article-prises-nfc15100.html" class="post-card">
+                <div class="post-card-img">
+                  <svg class="post-card-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <rect x="6" y="10" width="10" height="16" rx="1" stroke="#1a2b4a" stroke-width="1.5" fill="none"/>
+                    <rect x="20" y="10" width="10" height="16" rx="1" stroke="#1a2b4a" stroke-width="1.5" fill="none"/>
+                    <circle cx="11" cy="18" r="2" fill="#e8960f" opacity="0.6"/>
+                    <circle cx="25" cy="18" r="2" fill="#e8960f" opacity="0.6"/>
+                  </svg>
+                </div>
+                <div class="post-card-body">
+                  <span class="post-category">Normes NFC 15-100</span>
+                  <h3>Guide pratique : nombre de prises par pièce selon la norme NFC 15-100</h3>
+                  <p>Tout ce que vous devez savoir pour garantir une installation conforme dans votre appartement ou maison à Lyon.</p>
+                  <div class="post-card-footer">
+                    <span class="post-date">30 septembre 2023</span>
+                    <span class="post-link">Lire &rarr;</span>
+                  </div>
+                </div>
+              </a>
+
+              <a href="article-mise-en-conformite.html" class="post-card" style="grid-column: 1 / -1;">
+                <div style="display:grid;grid-template-columns:280px 1fr;">
+                  <div class="post-card-img" style="aspect-ratio:auto;min-height:180px;">
+                    <svg class="post-card-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                      <path d="M6 26 L6 14 L18 7 L30 14 L30 26 Z" stroke="#1a2b4a" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+                      <rect x="13" y="18" width="10" height="8" rx="1" stroke="#e8960f" stroke-width="1.5" fill="none"/>
+                      <path d="M6 26 L30 26" stroke="#1a2b4a" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="post-card-body">
+                    <span class="post-category">Mise aux normes</span>
+                    <h3>Tout savoir sur la mise en conformité électrique de votre logement à Lyon</h3>
+                    <p>Être propriétaire à Lyon est une responsabilité. La sécurité électrique est primordiale : découvrez tout sur la mise en conformité, les obligations légales et les étapes pour protéger votre logement.</p>
+                    <div class="post-card-footer">
+                      <span class="post-date">24 septembre 2023</span>
+                      <span class="post-link">Lire l'article complet &rarr;</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="blog-sidebar" aria-label="Sidebar blog">
+
+            <div class="sidebar-cta-widget">
+              <h3 class="widget-title">Besoin d'un électricien ?</h3>
+              <p>Devis gratuit sous 24h. Dépannage urgent 7j/7 sur Lyon et le Grand Lyon.</p>
+              <a href="tel:+33600000000" class="sidebar-tel">06 XX XX XX XX</a>
+              <a href="index.html#contact" class="btn-sidebar-cta">Demander un devis</a>
+            </div>
+
+            <div class="sidebar-widget">
+              <h3 class="widget-title">Catégories</h3>
+              <ul class="category-list">
+                <li><a href="#">Sécurité électrique <span class="category-count">3</span></a></li>
+                <li><a href="#">Normes & Conformité <span class="category-count">2</span></a></li>
+                <li><a href="#">Domotique <span class="category-count">1</span></a></li>
+                <li><a href="#">Télécom & Réseau <span class="category-count">1</span></a></li>
+                <li><a href="#">Maintenance <span class="category-count">1</span></a></li>
+              </ul>
+            </div>
+
+            <div class="sidebar-widget">
+              <h3 class="widget-title">Mots-clés</h3>
+              <div class="tag-cloud">
+                <a href="#" class="tag">électricien Lyon</a>
+                <a href="#" class="tag">NFC 15-100</a>
+                <a href="#" class="tag">mise aux normes</a>
+                <a href="#" class="tag">domotique</a>
+                <a href="#" class="tag">parafoudre</a>
+                <a href="#" class="tag">RJ45</a>
+                <a href="#" class="tag">mise à la terre</a>
+                <a href="#" class="tag">tableau électrique</a>
+                <a href="#" class="tag">rénovation</a>
+                <a href="#" class="tag">Rhône 69</a>
+                <a href="#" class="tag">CONSUEL</a>
+                <a href="#" class="tag">thermostat connecté</a>
+              </div>
+            </div>
+
+            <div class="sidebar-widget">
+              <h3 class="widget-title">Zone d'intervention</h3>
+              <p style="font-size:0.9rem;color:var(--c-texte-clair);line-height:1.7;">Lyon, Villeurbanne, Caluire, Vénissieux, Décines, Meyzieu, Bron, Saint-Priest, Villefranche-sur-Saône, Bourgoin-Jallieu et 50 km autour de Lyon.</p>
+              <a href="index.html#zones" style="display:inline-block;margin-top:1rem;font-size:0.82rem;font-weight:700;color:var(--c-accent);text-decoration:none;text-transform:uppercase;letter-spacing:0.06em;">Voir la carte &rarr;</a>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="newsletter-banner" aria-labelledby="newsletter-titre">
+      <div class="newsletter-inner">
+        <div class="newsletter-content">
+          <h2 id="newsletter-titre">Restez informé des derniers conseils électriques</h2>
+          <p>Normes, économies d'énergie, domotique : recevez les guides watt-com directement dans votre boîte mail. Gratuit, sans spam.</p>
+        </div>
+        <form class="newsletter-form" action="#" method="POST" novalidate>
+          <label for="newsletter-email" class="skip-link">Votre adresse email</label>
+          <input type="email" id="newsletter-email" name="email" placeholder="Votre adresse email" autocomplete="email" required>
+          <button type="submit">S'abonner</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="watt-com — Accueil">
+            <img src="logo.png" alt="watt-com" class="logo-img">
+          </a>
+          <p>Électricien et sous-traitant télécom à Lyon. Interventions rapides, travail soigné, tarifs honnêtes. Disponible 7j/7 pour le dépannage d'urgence.</p>
+          <p style="margin-top:0.75rem;color:rgba(255,255,255,0.3);font-size:0.82rem;">SIRET : XXX XXX XXX XXXXX</p>
+        </div>
+        <nav class="footer-col" aria-label="Navigation secondaire">
+          <h4>Services</h4>
+          <a href="index.html#services">Installation électrique</a>
+          <a href="index.html#services">Dépannage urgent</a>
+          <a href="index.html#services">Mise aux normes</a>
+          <a href="index.html#services">Domotique</a>
+          <a href="index.html#services">Télécom & réseaux</a>
+        </nav>
+        <nav class="footer-col" aria-label="Informations">
+          <h4>Informations</h4>
+          <a href="index.html#a-propos">À propos</a>
+          <a href="index.html#zones">Zone d'intervention</a>
+          <a href="blog.html">Blog</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="#">Mentions légales</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 watt-com. Tous droits réservés.</p>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.3);">Électricien Lyon, Villeurbanne, Caluire, Villefranche-sur-Saône, Décines, Bourgoin-Jallieu — Rhône (69) & Métropole de Lyon</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 20 ? '0 2px 30px rgba(0,0,0,0.25)' : '0 2px 20px rgba(0,0,0,0.18)';
+    }, { passive: true });
+  </script>
+</body>
+</html>
